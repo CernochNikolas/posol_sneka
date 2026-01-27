@@ -1,0 +1,43 @@
+{
+  "start_room": "cell3",
+  "rooms": [
+    {
+      "id": "cell3",
+      "name": "cela 3",
+      "exits": {"EAST":  "classroom", "NORTH":  "corridor"}
+    },
+    {
+      "id": "classroom",
+      "name": "trida",
+      "exits": {"WEST":  "cell3", "NORTH":  "corridor"}
+    },
+    {
+      "id": "corridor",
+      "name": "chodba",
+      "exits": {
+        "SOUTH": ["cell3", "classroom", "kitchen"],
+        "WEST": "nest"
+      }
+    },
+    {
+      "id": "kitchen",
+      "name": "Kuchyn",
+      "exits": {"UP": "vent", "NORTH": "corridor", "SOUTH": "storage"}
+    },
+    {
+      "id": "vent",
+      "name": "Ventilace",
+      "exits": {"UP": "kitchen", "EAST": "keyroom"}
+    },
+    {
+      "id": "keyroom",
+      "name":"Klice",
+      "exits": {"WEST": "vent"}
+    },
+    {
+      "id": "nest",
+      "name": "Hnizdo",
+      "exits": {"EAST":  "corridor"}
+    }
+  ]
+}
