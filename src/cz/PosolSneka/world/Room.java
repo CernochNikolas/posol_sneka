@@ -1,5 +1,6 @@
 package cz.PosolSneka.world;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Map;
 
@@ -30,4 +31,24 @@ public class Room {
     public Room move(Direction dir) {
         return exits.getOrDefault(dir, this);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(name).append(" (").append(id).append(")\n");
+        sb.append("Exits: ");
+
+        if (exits.isEmpty()) {
+            sb.append("(none)");
+        } else {
+            boolean first = true;
+            for (var e : exits.entrySet()) {
+                if (!first) sb.append(", ");
+                first = false;
+                sb.append(e.getKey()).append(" -> ").append(e.getValue().getId());
+            }
+        }
+        return sb.toString();
+    }
+
 }
