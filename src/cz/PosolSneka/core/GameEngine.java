@@ -1,5 +1,6 @@
 package cz.PosolSneka.core;
 
+import cz.PosolSneka.actors.Player;
 import cz.PosolSneka.world.Direction;
 import cz.PosolSneka.world.World;
 import cz.PosolSneka.world.Room;
@@ -7,9 +8,12 @@ import cz.PosolSneka.world.Room;
 public class GameEngine {
 
     private final World world;
+    private final Player player;
 
-    public GameEngine(World world) {
+
+    public GameEngine(World world, Player player) {
         this.world = world;
+        this.player = player;
     }
 
     public void movePlayer(Direction dir) {
@@ -26,7 +30,7 @@ public class GameEngine {
         }
     }
 
-    public World getWorld() {
-        return world;
-    }
+    public World getWorld() { return world; }
+    public Player getPlayer() { return player; }
+
 }

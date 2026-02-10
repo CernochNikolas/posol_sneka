@@ -2,12 +2,15 @@ package cz.PosolSneka.world;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 
 public class Room {
     private final String id;
     private final String name;
     private final Map<Direction, Room> exits = new EnumMap<>(Direction.class);
+
+    private final List<String> items = new ArrayList<>();
 
     public Room(String id, String name) {
         if (id == null || id.isBlank()) throw new IllegalArgumentException("Room id is empty");
@@ -50,5 +53,11 @@ public class Room {
         }
         return sb.toString();
     }
+
+    public List<String> getItems() { return items; }
+
+    public void addItem(String itemId) { items.add(itemId); }
+
+    public boolean removeItem(String itemId) { return items.remove(itemId); }
 
 }

@@ -4,47 +4,62 @@
     {
       "id": "cell3",
       "name": "cela 3",
-      "exits": {"EAST":  "classroom", "NORTH":  "corridor"}
+      "exits": {
+        "EAST": {"to":  "classroom", "locked": "helper"},
+        "NORTH": {"to": "corridor", "locked": "key"}
+      }
     },
     {
       "id": "classroom",
       "name": "trida",
-      "exits": {"WEST":  "cell3", "NORTH":  "corridor"}
+      "exits": {
+        "WEST": {"to": "cell3"},
+        "NORTH": {"to": "corridor"}
+      }
     },
     {
       "id": "corridor",
       "name": "chodba",
       "exits": {
-        "NORTH": "cell3",
-        "EAST": "classroom",
-        "SOUTH": "kitchen",
-        "WEST": "nest"
-      }
-    },
+        "NORTH": {
+          "to": "cell3"
+        },
+        "EAST": {
+          "to": "classroom"
+        },
+        "SOUTH": {
+          "to": "kitchen"
+        },
+        "WEST": {
+          "to": "nest"
+        }
+      }},
     {
       "id": "kitchen",
       "name": "Kuchyn",
-      "exits": {"UP": "vent", "NORTH": "corridor", "SOUTH": "storage"}
+      "exits": {"UP": {"to": "vent"}, "NORTH": {"to": "corridor"}, "SOUTH": {"to": "storage", "locked": "key"}}
     },
     {
       "id": "vent",
       "name": "Ventilace",
-      "exits": {"UP": "kitchen", "EAST": "keyroom"}
+      "exits": {"UP": {"to": "kitchen"}, "EAST": {"to": "keyroom"}}
     },
     {
       "id": "keyroom",
       "name":"Klice",
-      "exits": {"WEST": "vent"}
+      "exits": {"WEST": {"to": "vent"}},
+      "items": ["key"]
     },
     {
       "id": "nest",
       "name": "Hnizdo",
-      "exits": {"EAST":  "corridor"}
+      "exits": {"EAST": {"to": "corridor"}}
     },
     {
       "id": "storage",
       "name": "Sklad",
-      "exits": {"NORTH":  "kitchen"}
+      "exits": {"NORTH":  {"to": "kitchen"}},
+      "items": "salt"
     }
   ]
 }

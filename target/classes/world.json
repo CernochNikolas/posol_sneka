@@ -15,7 +15,9 @@
       "id": "corridor",
       "name": "chodba",
       "exits": {
-        "SOUTH": ["cell3", "classroom", "kitchen"],
+        "NORTH": "cell3",
+        "EAST": "classroom",
+        "SOUTH": "kitchen",
         "WEST": "nest"
       }
     },
@@ -38,6 +40,11 @@
       "id": "nest",
       "name": "Hnizdo",
       "exits": {"EAST":  "corridor"}
+    },
+    {
+      "id": "storage",
+      "name": "Sklad",
+      "exits": {"NORTH":  "kitchen"}
     }
   ]
 }

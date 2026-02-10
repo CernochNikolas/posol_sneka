@@ -1,6 +1,15 @@
 package cz.PosolSneka.actors;
 
+import cz.PosolSneka.items.Inventory;
+
 public class Player {
-    public void scream() {}
-    public void clearInventory() {}
+    private final Inventory inventory = new Inventory();
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void clearInventory() {
+        inventory.clear();
+    }
 }
