@@ -2,7 +2,9 @@ package cz.PosolSneka.commands;
 
 import cz.PosolSneka.core.GameEngine;
 
-public class ScreamCommand implements Command{
+public class ScreamCommand implements Command {
     @Override
-    public void execute(GameEngine engine) { }
+    public void execute(GameEngine engine) {
+        engine.scream();
+    }
 }

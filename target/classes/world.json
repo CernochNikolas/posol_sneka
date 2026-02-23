@@ -3,48 +3,101 @@
   "rooms": [
     {
       "id": "cell3",
-      "name": "cela 3",
-      "exits": {"EAST":  "classroom", "NORTH":  "corridor"}
+      "name": "Cela 3",
+      "exits": {
+        "NORTH": { "to": "prison" },
+        "EAST": { "to": "classroom", "locked": "helper" }
+      }
+    },
+    {
+      "id": "cell2",
+      "name": "Cela 2",
+      "exits": {
+        "EAST": { "to": "prison" }
+      }
+    },
+    {
+      "id": "cell1",
+      "name": "Cela 1",
+      "exits": {
+        "SOUTH": { "to": "prison" }
+      }
+    },
+    {
+      "id": "prison",
+      "name": "Veznice (blok cel)",
+      "exits": {
+        "NORTH": { "to": "cell1" },
+        "WEST": { "to": "cell2" },
+        "SOUTH": { "to": "cell3" },
+        "EAST": { "to": "corridor" }
+      }
     },
     {
       "id": "classroom",
-      "name": "trida",
-      "exits": {"WEST":  "cell3", "NORTH":  "corridor"}
+      "name": "Byvala ucebna",
+      "exits": {
+        "WEST": { "to": "cell3" },
+        "NORTH": { "to": "corridor" }
+      }
     },
     {
       "id": "corridor",
-      "name": "chodba",
+      "name": "Chodba",
       "exits": {
-        "NORTH": "cell3",
-        "EAST": "classroom",
-        "SOUTH": "kitchen",
-        "WEST": "nest"
+        "WEST": { "to": "prison" },
+        "SOUTH": { "to": "kitchen" },
+        "EAST": { "to": "nest" },
+        "NORTH": { "to": "classroom" }
       }
     },
     {
       "id": "kitchen",
       "name": "Kuchyn",
-      "exits": {"UP": "vent", "NORTH": "corridor", "SOUTH": "storage"}
+      "exits": {
+        "NORTH": { "to": "corridor" },
+        "UP": { "to": "vent" },
+        "SOUTH": { "to": "storage", "locked": "storage_key" }
+      }
     },
     {
       "id": "vent",
       "name": "Ventilace",
-      "exits": {"UP": "kitchen", "EAST": "keyroom"}
+      "exits": {
+        "DOWN": { "to": "kitchen" },
+        "EAST": { "to": "keyroom" }
+      }
     },
     {
       "id": "keyroom",
-      "name":"Klice",
-      "exits": {"WEST": "vent"}
+      "name": "Mistnost s klici (pes)",
+      "exits": {
+        "WEST": { "to": "vent" }
+      },
+      "items": ["storage_key"]
+    },
+    {
+      "id": "storage",
+      "name": "Sklad soli",
+      "exits": {
+        "NORTH": { "to": "kitchen" }
+      },
+      "items": ["big_salt", "small_salt_1", "small_salt_2", "small_salt_3"]
     },
     {
       "id": "nest",
       "name": "Hnizdo",
-      "exits": {"EAST":  "corridor"}
+      "exits": {
+        "WEST": { "to": "corridor" },
+        "EAST": { "to": "outside" }
+      }
     },
     {
-      "id": "storage",
-      "name": "Sklad",
-      "exits": {"NORTH":  "kitchen"}
+      "id": "outside",
+      "name": "Vychod ven",
+      "exits": {
+        "WEST": { "to": "nest" }
+      }
     }
   ]
 }

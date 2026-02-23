@@ -3,63 +3,101 @@
   "rooms": [
     {
       "id": "cell3",
-      "name": "cela 3",
+      "name": "Cela 3",
       "exits": {
-        "EAST": {"to":  "classroom", "locked": "helper"},
-        "NORTH": {"to": "corridor", "locked": "key"}
+        "NORTH": { "to": "prison" },
+        "EAST": { "to": "classroom", "locked": "helper" }
+      }
+    },
+    {
+      "id": "cell2",
+      "name": "Cela 2",
+      "exits": {
+        "EAST": { "to": "prison" }
+      }
+    },
+    {
+      "id": "cell1",
+      "name": "Cela 1",
+      "exits": {
+        "SOUTH": { "to": "prison" }
+      }
+    },
+    {
+      "id": "prison",
+      "name": "Veznice (blok cel)",
+      "exits": {
+        "NORTH": { "to": "cell1" },
+        "WEST": { "to": "cell2" },
+        "SOUTH": { "to": "cell3" },
+        "EAST": { "to": "corridor" }
       }
     },
     {
       "id": "classroom",
-      "name": "trida",
+      "name": "Byvala ucebna",
       "exits": {
-        "WEST": {"to": "cell3"},
-        "NORTH": {"to": "corridor"}
+        "WEST": { "to": "cell3" },
+        "NORTH": { "to": "corridor" }
       }
     },
     {
       "id": "corridor",
-      "name": "chodba",
+      "name": "Chodba",
       "exits": {
-        "NORTH": {
-          "to": "cell3"
-        },
-        "EAST": {
-          "to": "classroom"
-        },
-        "SOUTH": {
-          "to": "kitchen"
-        },
-        "WEST": {
-          "to": "nest"
-        }
-      }},
+        "WEST": { "to": "prison" },
+        "SOUTH": { "to": "kitchen" },
+        "EAST": { "to": "nest" },
+        "NORTH": { "to": "classroom" }
+      }
+    },
     {
       "id": "kitchen",
       "name": "Kuchyn",
-      "exits": {"UP": {"to": "vent"}, "NORTH": {"to": "corridor"}, "SOUTH": {"to": "storage", "locked": "key"}}
+      "exits": {
+        "NORTH": { "to": "corridor" },
+        "UP": { "to": "vent" },
+        "SOUTH": { "to": "storage", "locked": "storage_key" }
+      }
     },
     {
       "id": "vent",
       "name": "Ventilace",
-      "exits": {"UP": {"to": "kitchen"}, "EAST": {"to": "keyroom"}}
+      "exits": {
+        "DOWN": { "to": "kitchen" },
+        "EAST": { "to": "keyroom" }
+      }
     },
     {
       "id": "keyroom",
-      "name":"Klice",
-      "exits": {"WEST": {"to": "vent"}},
-      "items": ["key"]
+      "name": "Mistnost s klici (pes)",
+      "exits": {
+        "WEST": { "to": "vent" }
+      },
+      "items": ["storage_key"]
+    },
+    {
+      "id": "storage",
+      "name": "Sklad soli",
+      "exits": {
+        "NORTH": { "to": "kitchen" }
+      },
+      "items": ["big_salt", "small_salt_1", "small_salt_2", "small_salt_3"]
     },
     {
       "id": "nest",
       "name": "Hnizdo",
-      "exits": {"EAST": {"to": "corridor"}}
+      "exits": {
+        "WEST": { "to": "corridor" },
+        "EAST": { "to": "outside" }
+      }
     },
     {
-      "id": "storage",
-      "name": "Sklad",
-      "exits": {"NORTH":  {"to": "kitchen"}},
-      "items": "salt"
+      "id": "outside",
+      "name": "Vychod ven",
+      "exits": {
+        "WEST": { "to": "nest" }
+      }
     }
   ]
 }

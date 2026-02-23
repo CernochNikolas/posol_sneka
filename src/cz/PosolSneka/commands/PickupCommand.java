@@ -11,13 +11,6 @@ public class PickupCommand implements Command {
 
     @Override
     public void execute(GameEngine engine) {
-        var room = engine.getWorld().getCurrentRoom();
-
-        if (room.removeItem(itemId)) {
-            engine.getPlayer().getInventory().add(itemId);
-            System.out.println("Sebral jsi: " + itemId);
-        } else {
-            System.out.println("Tady to neni: " + itemId);
-        }
+        engine.pickup(itemId);
     }
 }
